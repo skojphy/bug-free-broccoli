@@ -1,7 +1,7 @@
 <script>
-	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import cat from '$lib/images/characters/cat.png';
 </script>
 
 <svelte:head>
@@ -10,22 +10,13 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+	<h1>냥냥보를 찾아서</h1>
 
-		to your new<br />SvelteKit app
-	</h1>
+	<a class="start" href="./game">START</a>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+	<a class="how-to-play" href="./how-to-play">How to play</a>
 
-	<Counter />
+	<img class="nyang" src={cat} alt="냥냥이" />
 </section>
 
 <style>
@@ -38,22 +29,41 @@
 	}
 
 	h1 {
+		font-size: 2rem;
 		width: 100%;
 	}
 
-	.welcome {
-		display: block;
+	.start {
+		margin: 2rem;
+		padding: 1rem;
+		font-size: 1.5rem;
+		background-color: var(--color-theme-2);
+		color: var(--color-text);
+	}
+
+	.how-to-play {
+		color: var(--color-text);
+	}
+
+	.how-to-play::before {
+		content: 'i';
+		display: inline-block;
+		font-size: 0.8em;
+		font-weight: 900;
+		width: 1em;
+		height: 1em;
+		padding: 0.2em;
+		line-height: 1;
+		border: 1.5px solid var(--color-text);
+		border-radius: 50%;
+		text-align: center;
+		margin: 0 0.5em 0 0;
 		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+		top: -0.05em;
 	}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.nyang {
+		width: 30%;
+		margin: 1rem;
 	}
 </style>
